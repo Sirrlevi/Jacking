@@ -52,7 +52,7 @@ import sys
 import time
 import webbrowser
 from datetime import datetime
-EXPIRE_TIME = '2026-05-13 23:00:00'
+EXPIRE_TIME = '2030-05-13 23:00:00'
 EXPIRE_MSG = '   THIS FILE STOPPED BY GOD WASU'
 
 def check_expiration():
@@ -71,9 +71,12 @@ from random import randrange, choice
 import os
 hit_dustu = kotu_insta = orta_mail = 0
 BLUE, RESET, BOLD, YELLOW, RED, GREEN, CYAN, MAGENTA = '\033[94m', '\033[0m', '\033[1m', '\033[93m', '\033[91m', '\033[92m', '\033[96m', '\033[95m'
-token = input(f" 𝒕𝒐𝒌𝒆𝒏: ")
-print('▭▭▭▭▭▭▭▭▭▭▭▭▭▭▭▭▭▭▭▭▭▭▭▭▭▭▭▭▭▭▭▭▭▭▭▭▭▭▭▭▭▭▭▭▭▭▭▭▭▭▭▭▭▭▭▭▭▭▭▭')
-ID = input(" 𝒊𝒅: ")
+token = os.getenv("BOT_TOKEN")
+ID = os.getenv("CHAT_ID")
+
+if not token or not ID:
+    print("ERROR: BOT_TOKEN and CHAT_ID environment variables required.")
+    sys.exit(1)
 from requests import post as pp
 from user_agent import generate_user_agent as gg
 from random import choice as cc
